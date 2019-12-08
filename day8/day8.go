@@ -2,8 +2,11 @@ package main
 
 import (
 	"fmt"
+	"os"
+	"os/exec"
 	"strconv"
 	"strings"
+	"time"
 )
 
 var layers = make(map[int]string)
@@ -47,6 +50,14 @@ func printImage() {
 				imageSlice[j] = pixel
 			}
 		}
+		cmd := exec.Command("clear") //Linux example, its tested
+		cmd.Stdout = os.Stdout
+		cmd.Run()
+		for k := 0; k < height; k++ {
+			fmt.Println("", imageSlice[k*width:(k+1)*width])
+		}
+
+		time.Sleep(100 * time.Millisecond)
 	}
 	for k := 0; k < height; k++ {
 		fmt.Println("", imageSlice[k*width:(k+1)*width])
