@@ -59,9 +59,6 @@ func printImage() {
 
 		time.Sleep(100 * time.Millisecond)
 	}
-	for k := 0; k < height; k++ {
-		fmt.Println("", imageSlice[k*width:(k+1)*width])
-	}
 }
 
 func checkValidImage() {
